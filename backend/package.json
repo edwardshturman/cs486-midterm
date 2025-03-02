@@ -1,0 +1,17 @@
+{
+  "name": "cs486-midterm-backend",
+  "module": "index.ts",
+  "type": "module",
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@types/express": "^5.0.0"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "@types/node": "^22.13.8",
+    "express": "^4.21.2",
+    "mysql2": "^3.12.0"
+  }
+}
