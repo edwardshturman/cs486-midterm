@@ -1,13 +1,13 @@
-import { Hono } from 'hono'
-import { cors } from 'hono/cors'
+import { Hono } from "hono"
+import { cors } from "hono/cors"
 
 const app = new Hono()
 
-app.use('/', cors()) // TODO: restrict origin based on ENV
-app.get('/', (c) => {
+app.use("/", cors()) // TODO: restrict origin based on ENV
+app.get("/", (c) => {
   return c.json({
     ok: true,
-    message: 'Hello Hono!'
+    message: "Hello Hono!"
   })
 })
 
@@ -33,8 +33,8 @@ app.use(cors({
 }))
 
 const config: PoolOptions = {
-  user: 'test',
-  database: 'test'
+  user: "test",
+  database: "test"
 }
 
 const connection = mysql.createPool(config)
