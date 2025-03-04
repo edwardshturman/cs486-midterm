@@ -1,3 +1,22 @@
+import { Hono } from 'hono'
+import { cors } from 'hono/cors'
+
+const app = new Hono()
+
+app.use('/', cors()) // TODO: restrict origin based on ENV
+app.get('/', (c) => {
+  return c.json({
+    ok: true,
+    message: 'Hello Hono!'
+  })
+})
+
+export default {
+  port: 8081,
+  fetch: app.fetch
+}
+
+/*
 import dotenv from "dotenv"
 import express from "express"
 import cors from "cors"
@@ -27,3 +46,4 @@ app.get("/", (req, res) => {
 app.listen(port, () => {
   console.log(`Listening on port ${port}...`);
 })
+*/
