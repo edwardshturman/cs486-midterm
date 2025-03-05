@@ -2,7 +2,9 @@ import Image from "next/image"
 
 import styles from "./page.module.css"
 
-export default function Home() {
+import { hello } from "@/functions/hello"
+
+export default async function Home() {
   return (
     <div className={styles.page}>
       <main className={styles.main}>
@@ -19,6 +21,11 @@ export default function Home() {
             Get started by editing <code>app/page.tsx</code>.
           </li>
           <li>Save and see your changes instantly.</li>
+          <li>
+            <form action={hello}>
+              <button type="submit">Test API</button>
+            </form>
+          </li>
         </ol>
 
         <div className={styles.ctas}>

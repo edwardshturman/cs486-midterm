@@ -1,3 +1,8 @@
+"use server"
+
 export async function hello() {
-  return await fetch("http://host.docker.internal:8081/").then((res) => res.json())
+  if (!process.env.BACKEND_URL) {
+    throw new Error("BACKEND_URL is not set")
+  }
+  return await fetch(process.env.BACKEND_URL).then((res) => res.json())
 }
