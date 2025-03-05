@@ -1,9 +1,8 @@
 import { Hono } from "hono"
 import { cors } from "hono/cors"
-import { PrismaClient } from "@prisma/client"
+import { getEvents, seed } from "@/src/db"
 
 const app = new Hono()
-const prisma = new PrismaClient()
 
 app.use("/", cors()) // TODO: restrict origin based on ENV
 app.get("/", (c) => {
@@ -11,8 +10,13 @@ app.get("/", (c) => {
 })
 
 app.get("/events", async (c) => {
-  const eventCount = await prisma.event.count()
-  return c.json({ count: eventCount })
+  const events = await getEvents()
+  return c.json({ events })
+})
+
+app.get("/events/seed", async (c) => {
+  await seed()
+  return c.json({ message: "Seeded events" })
 })
 
 export default {
