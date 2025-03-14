@@ -4,8 +4,8 @@
     "dev": "bun run --hot src/index.ts",
     "serve": "bun run src/index.ts",
     "test": "bun test",
-    "preserve": "bun run test",
-    "migrate": "dotenv -e ../.env.development.local prisma migrate dev"
+    "preserve": "bun run test && bun run migrate",
+    "migrate": "dotenv -e ./.env prisma migrate dev"
   },
   "dependencies": {
     "@prisma/client": "6.4.1",
